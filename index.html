@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apex Garage | Car modification configurator</title>
+<meta name="description" content="Design your build: choose paint, engine stage, exhaust, wheels, suspension, brakes and aero, and watch power, handling and cost update live.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Saira+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Apex Garage home">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M2 21 13 4l11 17h-6.5L13 13.5 8.5 21Z" fill="currentColor"/></svg>
+      Apex Garage
+    </a>
+    <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main">
+      <a href="#configure">Configurator</a>
+      <a href="#stages">Engine stages</a>
+      <a href="#guide">Upgrade guide</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#contact">Book a consultation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="intro wrap">
+    <h1>Design the build before you buy a single part.</h1>
+    <p class="lead">Pick paint, power and parts. The car, the numbers and the price update as you choose.</p>
+  </section>
+
+  <section id="configure" class="config wrap" aria-label="Car configurator">
+    <div class="stage-col">
+      <div class="stage">
+        <svg viewBox="0 0 820 330" role="img" aria-label="Side view of your configured car">
+          <defs>
+            <path id="carBody" d="M78 236L82 198Q86 183 122 179L250 173Q285 121 345 108L470 106Q522 112 562 160L660 182Q726 192 743 219L749 236Z"/>
+            <path id="win" d="M268 168Q295 128 348 118L468 116Q505 122 535 160Z"/>
+            <clipPath id="bodyClip"><use href="#carBody"/></clipPath>
+            <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff" stop-opacity=".6"/>
+              <stop offset=".45" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="1" stop-color="#000" stop-opacity=".35"/>
+            </linearGradient>
+            <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#a6b8cf"/>
+              <stop offset="1" stop-color="#43536b"/>
+            </linearGradient>
+            <filter id="blur" x="-10%" y="-400%" width="120%" height="900%"><feGaussianBlur stdDeviation="8"/></filter>
+          </defs>
+
+          <ellipse cx="410" cy="289" rx="360" ry="9" fill="#000" opacity=".3" filter="url(#blur)"/>
+          <ellipse id="glow" cx="410" cy="287" rx="320" ry="12" fill="#2e5bff" filter="url(#blur)" opacity="0"/>
+
+          <g id="car">
+            <g id="bodyG">
+              <g id="spoiler" display="none" fill="#0f1218">
+                <rect x="96" y="156" width="7" height="28"/>
+                <rect x="128" y="152" width="7" height="28"/>
+                <path d="M56 150 158 142 160 151 60 159Z"/>
+              </g>
+
+              <use href="#carBody" class="paint" stroke="#000" stroke-opacity=".3" stroke-width="1.5"/>
+              <use href="#carBody" fill="url(#shine)" class="shine"/>
+
+              <g id="kit" display="none" fill="#0f1218">
+                <rect x="262" y="233" width="270" height="9" rx="3"/>
+                <path d="M690 236 757 231 757 241 698 244Z"/>
+                <path d="M74 236H134L126 247 78 248Z"/>
+              </g>
+
+              <use href="#win" fill="url(#glass)"/>
+              <use id="tint" href="#win" fill="#000" opacity="0"/>
+              <rect x="402" y="116" width="7" height="50" class="paint"/>
+              <path d="M520 152 546 157 541 165 518 163Z" class="paint" stroke="#000" stroke-opacity=".35"/>
+              <path d="M300 178V232M405 166V232M520 166V232" stroke="#000" stroke-opacity=".28" fill="none"/>
+              <rect x="360" y="177" width="24" height="4" rx="2" fill="#000" opacity=".4"/>
+              <path d="M705 199 738 210 741 218 708 209Z" fill="#fff6c9"/>
+              <rect x="722" y="223" width="24" height="8" rx="2" fill="#0f1218" opacity=".85"/>
+              <path d="M80 199 98 197 99 205 80 207Z" fill="#ff2d3a"/>
+              <ellipse id="tip" cx="92" cy="239" rx="9" ry="4" fill="#6b717c"/>
+
+              <g clip-path="url(#bodyClip)">
+                <circle id="a1" cx="210" cy="240" r="58" fill="#0b0d11"/>
+                <circle id="a2" cx="600" cy="240" r="58" fill="#0b0d11"/>
+              </g>
+            </g>
+
+            <g transform="translate(210 240)">
+              <circle r="46" fill="#0e1014"/><circle r="40" fill="none" stroke="#21252d" stroke-width="2"/>
+              <g id="r1" class="spin"></g>
+            </g>
+            <g transform="translate(600 240)">
+              <circle r="46" fill="#0e1014"/><circle r="40" fill="none" stroke="#21252d" stroke-width="2"/>
+              <g id="r2" class="spin"></g>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="readout">
+        <div class="figs">
+          <div class="fig"><strong id="hp">290</strong><span>horsepower</span></div>
+          <div class="fig"><strong id="tq">300</strong><span>lb-ft torque</span></div>
+          <div class="fig"><strong id="zero">5.2</strong><span>seconds, 0–60 mph</span></div>
+          <div class="fig"><strong id="wt">3,300</strong><span>lb curb weight</span></div>
+        </div>
+        <div class="bars">
+          <div class="bar power"><span>Power</span><i><b id="bPower"></b></i><em id="vPower"></em></div>
+          <div class="bar handling"><span>Handling</span><i><b id="bHandling"></b></i><em id="vHandling"></em></div>
+          <div class="bar braking"><span>Braking</span><i><b id="bBraking"></b></i><em id="vBraking"></em></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-col">
+      <div class="tabs" id="tabs"></div>
+      <div id="panels"></div>
+    </div>
+  </section>
+
+  <section id="build" class="sec wrap">
+    <h2>Your build sheet</h2>
+    <div class="build">
+      <ul id="items" class="items"></ul>
+      <div class="totalbox">
+        <p class="small">Estimated parts total</p>
+        <p class="total" id="total">$0</p>
+        <div class="actions">
+          <button class="btn" id="save" type="button">Save build</button>
+          <button class="btn ghost" id="copy" type="button">Copy build sheet</button>
+          <button class="btn ghost" id="reset" type="button">Reset</button>
+        </div>
+        <p id="status" class="small" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="stages" class="sec wrap">
+    <h2>Engine stages compared</h2>
+    <p class="lead">Figures are for the stock car with only the engine stage changed.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Stage</th><th>What changes</th><th>Power</th><th>Torque</th><th>0–60 mph</th><th>Price</th><th><span class="sr">Select</span></th></tr></thead>
+        <tbody id="stageRows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="guide" class="sec dark">
+    <div class="wrap">
+      <h2>What each upgrade does</h2>
+      <div class="guide">
+        <div><h3>Engine and tune</h3><p>A tune remaps boost and fuel for more power from the same engine. Higher stages add airflow parts, then a bigger turbo, and each step asks more of your cooling and clutch.</p></div>
+        <div><h3>Exhaust</h3><p>A freer-flowing exhaust cuts back-pressure and weight, and changes how the car sounds. Check local noise and emissions rules before swapping the catalytic converter.</p></div>
+        <div><h3>Suspension</h3><p>Lowering springs and coilovers reduce body roll and drop the center of gravity. Go too low and the car turns harsh on rough roads.</p></div>
+        <div><h3>Wheels and tires</h3><p>Lighter wheels reduce unsprung weight, so the car turns in and stops more sharply. Tires matter more than wheel style for grip.</p></div>
+        <div><h3>Brakes</h3><p>More power needs more stopping. Better pads and rotors resist fade on a hot track day, and a big brake kit adds bite and heat capacity.</p></div>
+        <div><h3>Aero and styling</h3><p>A wing and splitters add downforce at speed. At city speeds they mostly change the look, so choose them for the job you want the car to do.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="sec wrap">
+    <h2>Questions before you start</h2>
+    <div class="faq">
+      <details><summary>Will modifications void my warranty?</summary><p>Not automatically. In the US a dealer generally has to show that a part caused a failure before denying a claim. Engine tunes are often detectable though, and engine claims can be refused, so ask your dealer before you tune.</p></details>
+      <details><summary>Are these upgrades street legal?</summary><p>It depends on where you live. Emissions parts, exhaust noise, window tint and ride height are regulated by state or country. In California, for example, emissions-related parts need a CARB approval number.</p></details>
+      <details><summary>Do I need to tell my insurer?</summary><p>Yes. Unreported modifications can reduce a payout or void a claim. Some insurers offer policies built for modified cars.</p></details>
+      <details><summary>What should I upgrade first?</summary><p>Tires, brakes and suspension, then power. A car that stops and turns well makes extra power usable.</p></details>
+    </div>
+  </section>
+
+  <section id="contact" class="sec wrap contact">
+    <div>
+      <h2>Plan your build with a specialist</h2>
+      <p class="lead">Tell us what you drive and what you want from it. We reply within two business days.</p>
+    </div>
+    <form id="form" novalidate>
+      <label>Name<input name="name" type="text" autocomplete="name" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label>What are you building?<textarea name="msg" rows="4" required></textarea></label>
+      <button class="btn" type="submit">Request a consultation</button>
+      <p id="formMsg" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© <span id="year"></span> Apex Garage. A demo project: prices and performance figures are estimates, not quotes.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
